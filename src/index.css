@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Futuristic dark "neo-botanical" theme — ink plum, radiant gold, hibiscus magenta */
+    --background: 320 30% 5%;
+    --foreground: 40 33% 95%;
+    --card: 320 26% 8%;
+    --card-foreground: 40 33% 95%;
+    --popover: 320 26% 8%;
+    --popover-foreground: 40 33% 95%;
+    --primary: 43 82% 60%;
+    --primary-foreground: 320 40% 8%;
+    --secondary: 320 22% 14%;
+    --secondary-foreground: 40 33% 95%;
+    --muted: 320 20% 14%;
+    --muted-foreground: 330 12% 68%;
+    --accent: 340 75% 55%;
+    --accent-foreground: 40 33% 96%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 320 20% 18%;
+    --input: 320 20% 18%;
+    --ring: 43 82% 60%;
+    --radius: 0.875rem;
+    --sidebar-background: 320 26% 8%;
+    --sidebar-foreground: 40 33% 95%;
+    --sidebar-primary: 43 82% 60%;
+    --sidebar-primary-foreground: 320 40% 8%;
+    --sidebar-accent: 320 22% 14%;
+    --sidebar-accent-foreground: 40 33% 95%;
+    --sidebar-border: 320 20% 18%;
+    --sidebar-ring: 43 82% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Outfit", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: hsl(43 82% 60% / 0.85);
+    color: hsl(320 40% 8%);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Unbounded", "Outfit", sans-serif;
+  }
+  .font-serif-italic {
+    font-family: "Playfair Display", Georgia, serif;
+    font-style: italic;
+  }
+  .glass {
+    background: linear-gradient(150deg, hsl(320 30% 12% / 0.72), hsl(320 28% 8% / 0.55));
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid hsl(43 82% 60% / 0.16);
+  }
+  .glass-strong {
+    background: linear-gradient(150deg, hsl(320 30% 14% / 0.9), hsl(320 30% 9% / 0.8));
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid hsl(43 82% 60% / 0.22);
+  }
+  .text-gold-gradient {
+    background: linear-gradient(100deg, hsl(43 90% 72%), hsl(43 82% 58%) 45%, hsl(36 88% 66%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-hibiscus-gradient {
+    background: linear-gradient(100deg, hsl(340 85% 66%), hsl(330 80% 58%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .glow-gold {
+    box-shadow: 0 0 24px hsl(43 82% 60% / 0.28), 0 0 80px hsl(43 82% 60% / 0.12);
+  }
+  .glow-ring {
+    box-shadow:
+      0 0 0 1px hsl(43 82% 60% / 0.35),
+      0 0 40px hsl(43 82% 60% / 0.22),
+      0 0 120px hsl(340 75% 55% / 0.12);
+  }
+  .hairline {
+    border-color: hsl(43 82% 60% / 0.18);
+  }
+}
+
+/* ---------- motion ---------- */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee-x 28s linear infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 4.5s ease-in-out infinite;
+}
+
+@keyframes spin-slower {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slower {
+  animation: spin-slower 28s linear infinite;
+}
+
+/* scroll reveal — visible by default, enhanced when JS marks it */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+.reveal.reveal-armed {
+  opacity: 0;
+  transform: translateY(26px) scale(0.98);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.reveal.reveal-armed.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-float-slow,
+  .animate-pulse-glow,
+  .animate-spin-slower {
+    animation: none;
+  }
+  .reveal.reveal-armed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
