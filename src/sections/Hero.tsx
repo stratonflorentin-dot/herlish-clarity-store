@@ -1,7 +1,12 @@
-import { BadgeCheck, Leaf, MapPin, MessageCircle } from "lucide-react";
+import { lazy, Suspense } from "react";
+import { BadgeCheck, Leaf, MapPin, MessageCircle, RotateCw } from "lucide-react";
 import { GoldParticles } from "@/components/GoldParticles";
 import { Reveal } from "@/components/Reveal";
 import { BRAND } from "@/config";
+
+const Bottle3D = lazy(() =>
+  import("@/components/Bottle3D").then((m) => ({ default: m.Bottle3D }))
+);
 
 export function Hero() {
   return (
@@ -107,22 +112,34 @@ export function Hero() {
               aria-hidden="true"
               className="animate-pulse-glow absolute inset-6 rounded-[2.5rem] bg-primary/25 blur-3xl"
             />
-            <div className="glow-ring relative overflow-hidden rounded-[2.5rem] border border-primary/25">
-              <img
-                src="/product.jpg"
-                alt="Elegant cork-stoppered glass bottle of golden Herlish Clarity castor oil beside castor seeds and fresh leaves"
-                className="aspect-[4/5] w-full object-cover"
-                loading="eager"
-              />
+            <div className="glow-ring relative aspect-[4/5] overflow-hidden rounded-[2.5rem] border border-primary/25 bg-gradient-to-b from-card/60 to-background">
+              <Suspense
+                fallback={
+                  <img
+                    src="/product.jpg"
+                    alt="Elegant cork-stoppered glass bottle of golden Herlish Clarity castor oil beside castor seeds and fresh leaves"
+                    className="h-full w-full object-cover"
+                    loading="eager"
+                  />
+                }
+              >
+                <Bottle3D
+                  poster="/product.jpg"
+                  posterAlt="Elegant cork-stoppered glass bottle of golden Herlish Clarity castor oil beside castor seeds and fresh leaves"
+                />
+              </Suspense>
               <div
                 aria-hidden="true"
-                className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent"
               />
-              <div className="glass absolute inset-x-4 bottom-4 flex items-center justify-between rounded-2xl px-5 py-3.5">
+              <div className="glass pointer-events-none absolute inset-x-4 bottom-4 flex items-center justify-between rounded-2xl px-5 py-3.5">
                 <span className="font-display text-xs font-semibold tracking-[0.2em] uppercase text-primary">
                   Elixir No. 01
                 </span>
-                <span className="text-xs font-medium text-muted-foreground">Expiry {BRAND.expiry}</span>
+                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+                  <RotateCw className="size-3.5 text-primary" aria-hidden="true" />
+                  Drag to spin
+                </span>
               </div>
             </div>
           </div>
