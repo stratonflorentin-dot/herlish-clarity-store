@@ -1,6 +1,5 @@
 import { RotateCw } from "lucide-react";
 import { CurvedCarousel } from "@/components/CurvedCarousel";
-import { GoldParticles } from "@/components/GoldParticles";
 import { Reveal } from "@/components/Reveal";
 import { BENEFITS } from "@/config";
 
@@ -24,8 +23,6 @@ export function Showcase() {
             "radial-gradient(45% 40% at 85% 15%, hsl(340 75% 55% / 0.08), transparent 60%)",
         }}
       />
-      <GoldParticles density={36} />
-
       <div className="relative mx-auto max-w-6xl px-5 md:px-8">
         <Reveal className="text-center">
           <p className="font-display text-xs font-semibold tracking-[0.3em] uppercase text-primary">

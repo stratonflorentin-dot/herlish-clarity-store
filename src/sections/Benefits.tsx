@@ -1,6 +1,11 @@
-import { Droplet, Droplets, Leaf, ShieldCheck, Sparkles } from "lucide-react";
+import { lazy, Suspense, useState } from "react";
+import { Droplet, Droplets, Leaf, Orbit, ShieldCheck, Sparkles } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { BENEFITS } from "@/config";
+
+const FollicleModal = lazy(() =>
+  import("@/components/FollicleModal").then((m) => ({ default: m.FollicleModal }))
+);
 
 const ICONS = {
   droplet: Droplet,
@@ -11,6 +16,8 @@ const ICONS = {
 } as const;
 
 export function Benefits() {
+  const [selected, setSelected] = useState<(typeof BENEFITS)[number] | null>(null);
+
   return (
     <section id="benefits" className="relative py-24 sm:py-32">
       <div
@@ -30,6 +37,9 @@ export function Benefits() {
           <h2 className="font-display mt-4 max-w-2xl text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
             One elixir. <span className="text-gold-gradient">Five powers</span> for your crown.
           </h2>
+          <p className="mt-3 text-base text-muted-foreground">
+            Tap any card&apos;s 3D button to watch how the oil works inside a hair follicle.
+          </p>
         </Reveal>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -52,6 +62,15 @@ export function Benefits() {
                     <span className="absolute bottom-3 left-5 grid size-11 place-items-center rounded-2xl border border-primary/40 bg-background/70 text-primary backdrop-blur-md transition-transform duration-300 group-hover:scale-110">
                       <Icon className="size-5" aria-hidden="true" />
                     </span>
+                    <button
+                      type="button"
+                      onClick={() => setSelected(b)}
+                      aria-label={`View ${b.title} in interactive 3D`}
+                      className="absolute bottom-3 right-4 inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-background/70 px-3.5 py-2 text-xs font-semibold text-primary backdrop-blur-md transition-all hover:scale-105 hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-95"
+                    >
+                      <Orbit className="size-3.5" aria-hidden="true" />
+                      3D
+                    </button>
                   </div>
                   <div className="p-6 pt-4">
                     <h3 className="font-display text-lg font-semibold leading-snug">{b.title}</h3>
@@ -88,6 +107,16 @@ export function Benefits() {
           </Reveal>
         </div>
       </div>
+
+      {selected && (
+        <Suspense fallback={null}>
+          <FollicleModal
+            title={selected.title}
+            text={selected.text}
+            onClose={() => setSelected(null)}
+          />
+        </Suspense>
+      )}
     </section>
   );
 }

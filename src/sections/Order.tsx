@@ -1,5 +1,4 @@
 import { CalendarCheck, MapPin, MessageCircle } from "lucide-react";
-import { GoldParticles } from "@/components/GoldParticles";
 import { Reveal } from "@/components/Reveal";
 import { BRAND } from "@/config";
 
@@ -15,8 +14,6 @@ export function Order() {
             "radial-gradient(40% 40% at 85% 90%, hsl(340 75% 55% / 0.1), transparent 60%)",
         }}
       />
-      <GoldParticles density={40} />
-
       <div className="relative mx-auto max-w-4xl px-5 text-center md:px-8">
         <Reveal>
           <p className="font-display text-xs font-semibold tracking-[0.3em] uppercase text-primary">
