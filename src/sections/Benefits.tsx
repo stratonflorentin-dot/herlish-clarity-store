@@ -37,12 +37,26 @@ export function Benefits() {
             const Icon = ICONS[b.icon as keyof typeof ICONS];
             return (
               <Reveal key={b.title} delay={i * 80} className={i === 4 ? "sm:col-span-2 lg:col-span-1" : ""}>
-                <article className="glass group h-full rounded-3xl p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:glow-gold">
-                  <span className="mb-5 grid size-12 place-items-center rounded-2xl border border-primary/30 bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
-                    <Icon className="size-5.5" aria-hidden="true" />
-                  </span>
-                  <h3 className="font-display text-lg font-semibold leading-snug">{b.title}</h3>
-                  <p className="mt-2.5 text-[0.95rem] leading-relaxed text-muted-foreground">{b.text}</p>
+                <article className="glass group h-full overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:glow-gold">
+                  <div className="relative h-44 overflow-hidden">
+                    <img
+                      src={b.image}
+                      alt={b.alt}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent"
+                    />
+                    <span className="absolute bottom-3 left-5 grid size-11 place-items-center rounded-2xl border border-primary/40 bg-background/70 text-primary backdrop-blur-md transition-transform duration-300 group-hover:scale-110">
+                      <Icon className="size-5" aria-hidden="true" />
+                    </span>
+                  </div>
+                  <div className="p-6 pt-4">
+                    <h3 className="font-display text-lg font-semibold leading-snug">{b.title}</h3>
+                    <p className="mt-2 text-[0.95rem] leading-relaxed text-muted-foreground">{b.text}</p>
+                  </div>
                 </article>
               </Reveal>
             );
@@ -50,18 +64,26 @@ export function Benefits() {
 
           {/* ritual card fills the 6th slot */}
           <Reveal delay={420}>
-            <article className="group relative h-full overflow-hidden rounded-3xl border border-accent/30 bg-gradient-to-br from-accent/15 via-card to-card p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/60">
+            <article className="group relative h-full overflow-hidden rounded-3xl border border-accent/30 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/60">
+              <img
+                src="/benefits/ritual.jpg"
+                alt="Cupped hands holding golden oil drops above a glass bottle of castor oil"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
               <div
                 aria-hidden="true"
-                className="absolute -right-10 -top-10 size-36 rounded-full bg-accent/20 blur-2xl transition-opacity group-hover:opacity-100"
+                className="absolute inset-0 bg-gradient-to-t from-background via-background/75 to-background/25"
               />
-              <p className="font-display text-xs font-semibold tracking-[0.25em] uppercase text-accent">
-                The ritual
-              </p>
-              <p className="font-serif-italic mt-4 text-xl leading-relaxed text-foreground/90">
-                Warm a few drops between your palms, massage into the scalp, and let nature do the
-                rest — two to three nights a week.
-              </p>
+              <div className="relative flex h-full flex-col justify-end p-7">
+                <p className="font-display text-xs font-semibold tracking-[0.25em] uppercase text-accent">
+                  The ritual
+                </p>
+                <p className="font-serif-italic mt-3 text-xl leading-relaxed text-foreground/95">
+                  Warm a few drops between your palms, massage into the scalp, and let nature do
+                  the rest — two to three nights a week.
+                </p>
+              </div>
             </article>
           </Reveal>
         </div>

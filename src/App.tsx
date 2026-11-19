@@ -1,6 +1,7 @@
 import { Nav } from "@/sections/Nav";
 import { Hero } from "@/sections/Hero";
 import { Marquee } from "@/sections/Marquee";
+import { Showcase } from "@/sections/Showcase";
 import { Benefits } from "@/sections/Benefits";
 import { Formula } from "@/sections/Formula";
 import { Order } from "@/sections/Order";
@@ -13,6 +14,7 @@ export default function App() {
       <main>
         <Hero />
         <Marquee />
+        <Showcase />
         <Benefits />
         <Formula />
         <Order />

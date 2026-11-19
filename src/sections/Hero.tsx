@@ -109,10 +109,9 @@ export function Hero() {
             />
             <div className="glow-ring relative overflow-hidden rounded-[2.5rem] border border-primary/25">
               <img
-                src="/flyer.jpg"
-                alt="Herlish Clarity Store 100% pure and natural castor oil bottle with herbs, coconut and castor seeds"
+                src="/product.jpg"
+                alt="Elegant cork-stoppered glass bottle of golden Herlish Clarity castor oil beside castor seeds and fresh leaves"
                 className="aspect-[4/5] w-full object-cover"
-                style={{ objectPosition: "46% 32%" }}
                 loading="eager"
               />
               <div

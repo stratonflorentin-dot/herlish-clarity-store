@@ -3,6 +3,7 @@ import { Crown, Menu, X, MessageCircle } from "lucide-react";
 import { BRAND } from "@/config";
 
 const LINKS = [
+  { label: "Gallery", href: "#showcase" },
   { label: "Benefits", href: "#benefits" },
   { label: "Formula", href: "#formula" },
   { label: "Order", href: "#order" },
