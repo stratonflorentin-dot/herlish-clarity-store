@@ -15,7 +15,7 @@ export function Formula() {
             />
             <div className="relative overflow-hidden rounded-[2rem] border border-accent/25">
               <img
-                src="/flyer.png"
+                src="/flyer.jpg"
                 alt="Full Herlish Clarity Store castor oil product flyer showing benefits, sizes and ordering details"
                 className="w-full object-cover"
                 loading="lazy"
