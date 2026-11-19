@@ -49,6 +49,45 @@ export const BENEFITS = [
   },
 ] as const;
 
+export const REVIEWS = [
+  {
+    name: "Halima M.",
+    location: "Dar es Salaam",
+    rating: 5,
+    text: "My edges were thinning for years. Three months with this oil and my hairline is finally filling back in. I massage it in every night before bed.",
+  },
+  {
+    name: "Neema K.",
+    location: "Arusha",
+    rating: 5,
+    text: "The shine is unreal. My twists stay moisturized for days and my scalp stopped itching completely. This is now a permanent part of my routine.",
+  },
+  {
+    name: "Zawadi J.",
+    location: "Mwanza",
+    rating: 5,
+    text: "I was skeptical because I've tried so many oils, but this one is different — thick, pure, no weird smell. My breakage reduced within weeks.",
+  },
+  {
+    name: "Rehema S.",
+    location: "Dodoma",
+    rating: 4,
+    text: "Beautiful packaging and the oil itself feels luxurious. A little goes a long way. My only wish is a bigger bottle — the 250 ml runs out fast!",
+  },
+  {
+    name: "Aisha B.",
+    location: "Zanzibar",
+    rating: 5,
+    text: "Used it on my daughter's hair too — so gentle and natural. Her curls are softer and so much easier to detangle now. Asante sana!",
+  },
+  {
+    name: "Wema T.",
+    location: "Mbeya",
+    rating: 5,
+    text: "Ordered on WhatsApp and it arrived in two days. The herbal blend smells earthy and real. My hair feels stronger from root to tip.",
+  },
+] as const;
+
 export const INGREDIENTS = [
   {
     name: "Black Castor Oil",

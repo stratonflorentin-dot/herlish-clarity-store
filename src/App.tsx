@@ -5,6 +5,7 @@ import { Marquee } from "@/sections/Marquee";
 import { Showcase } from "@/sections/Showcase";
 import { Benefits } from "@/sections/Benefits";
 import { Formula } from "@/sections/Formula";
+import { Reviews } from "@/sections/Reviews";
 import { Order } from "@/sections/Order";
 import { Footer } from "@/sections/Footer";
 
@@ -26,6 +27,7 @@ export default function App() {
           <Showcase />
           <Benefits />
           <Formula />
+          <Reviews />
           <Order />
         </main>
         <Footer />
