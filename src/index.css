@@ -134,6 +134,20 @@
   animation: spin-slower 28s linear infinite;
 }
 
+/* slider piece idle bob — base rotation lives in --rot so mirror never fights it */
+@keyframes bob {
+  from {
+    transform: translateY(calc(-7 * var(--u, 1px))) rotate(calc(var(--rot, 0deg) - 3deg));
+  }
+  to {
+    transform: translateY(calc(7 * var(--u, 1px))) rotate(calc(var(--rot, 0deg) + 3deg));
+  }
+}
+.bob {
+  animation: bob 4s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
 /* scroll reveal — visible by default, enhanced when JS marks it */
 .reveal {
   opacity: 1;
@@ -153,8 +167,12 @@
   .animate-marquee,
   .animate-float-slow,
   .animate-pulse-glow,
-  .animate-spin-slower {
+  .animate-spin-slower,
+  .bob {
     animation: none;
+  }
+  .bob {
+    transform: rotate(var(--rot, 0deg));
   }
   .reveal.reveal-armed {
     opacity: 1;
