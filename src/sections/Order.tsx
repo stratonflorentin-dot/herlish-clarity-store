@@ -30,15 +30,32 @@ export function Order() {
 
         <Reveal delay={140}>
           <div className="mx-auto mt-10 grid max-w-xl gap-4 sm:grid-cols-2">
-            {BRAND.sizes.map((size) => (
+            {BRAND.sizes.map((size, i) => (
               <a
                 key={size}
                 href={BRAND.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass group rounded-3xl p-7 text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:glow-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="glass group relative overflow-hidden rounded-3xl p-7 pt-5 text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:glow-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
-                <p className="font-display text-3xl font-bold text-gold-gradient">{size}</p>
+                <div className="flex h-28 items-end justify-center">
+                  <img
+                    src="/slider/bottle.png"
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    className="bob transition-transform duration-300 group-hover:scale-105"
+                    style={{
+                      width: i === 0 ? 62 : 76,
+                      ["--rot" as string]: "0deg",
+                      ["--u" as string]: "0.4px",
+                      animationDuration: "4.2s",
+                      animationDelay: `${-i * 1.6}s`,
+                      filter: "drop-shadow(0 10px 16px rgba(0, 0, 0, 0.5))",
+                    }}
+                  />
+                </div>
+                <p className="font-display mt-3 text-3xl font-bold text-gold-gradient">{size}</p>
                 <p className="mt-1.5 text-sm text-muted-foreground">100% pure castor oil</p>
                 <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-transform duration-300 group-hover:translate-x-1">
                   Order this size

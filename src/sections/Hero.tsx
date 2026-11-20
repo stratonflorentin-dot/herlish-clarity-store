@@ -491,6 +491,12 @@ export function Hero() {
           className="pointer-events-none absolute inset-x-0 top-0 z-10 h-36 bg-gradient-to-b from-black/50 via-black/25 to-transparent"
         />
 
+        {/* bottom fade blends the pastel hero into the dark page below */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-background to-transparent"
+        />
+
         {/* ---- fixed UI ---- */}
         <div className="pointer-events-none absolute inset-0 z-20">
           {/* flavour tabs */}
